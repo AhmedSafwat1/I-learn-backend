@@ -1,0 +1,29 @@
+{
+    "name": "nwidart/learn",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Learn\\Providers\\LearnServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Learn\\": ""
+        }
+    },
+     "classmap": [
+            "Database/Seeders",
+            "Database/factories"
+     ]
+}

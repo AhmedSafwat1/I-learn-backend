@@ -1,0 +1,17 @@
+{
+    "Area": true,
+    "Category": true,
+    "Page": true,
+    "User": true,
+    "Authentication": true,
+    "Apps": true,
+    "Core": true,
+    "Translation": true,
+    "Setting": true,
+    "Authorization": true,
+    "Transaction": true,
+    "Section": true,
+    "Question": true,
+    "DeviceToken": true,
+    "Learn": true
+}

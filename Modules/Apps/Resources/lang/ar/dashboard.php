@@ -1,0 +1,195 @@
+<?php
+
+return [
+    '_layout'   => [
+        'aside' => [
+            '_tabs'             => [
+                'areas'             => 'المناطق',
+                'catalog'           => 'كتالوج',
+                'other'             => 'اخرى',
+                'roles_permissions' => 'صلاحيات و مهام',
+                'users'             => 'الاعضاء',
+                "socials"           => "وسائل التواصل",
+                "cto"               => "مجلس الادارة (Cto)" ,
+                "advertising"        => "العروض" ,
+              
+              
+            ],
+           
+            "subjects"               => "المواد التعليميه",
+        
+            "contact"           => "التواصل والاقتراحات" ,
+            "advertisingRequests"=> "طلبات الاعلان",    
+            "admins"            => "المدراء",
+            'categories'        => ' انواع الخدمات ',
+            'cities'            => 'المحافظات',
+            'countries'         => 'الدول',
+            'notifications'     => 'الاشعارات عامة',
+            'orders'            => 'عمليات الدفع',
+            'orders_calendar'   => 'مواعيد عمليات الدفع',
+            "socials"           => "وسائل التواصل",
+            "options"           => "خيارات وسائل التواصل",
+            'pages'             => 'الصفحات',
+            'permissions'       => 'الصلاحيات',
+            'roles'             => 'الادوار و المهام',
+            'sections'          => 'المراحل التعليميه',
+            'setting'           => 'الأعدادات',
+            'states'            => 'المناطق',
+            'telescope'         => 'Telescope',
+            'users'             => 'الطلاب',
+            'vendor_statuses'   => 'حالات المؤسسات',
+            "influancers"       => "المشاهير", 
+            "business"          => "اصحاب عمل", 
+            'vendors'           => 'المؤسسات',
+            'workers'           => 'العاملين',
+            'slider'            => 'سلايدر',
+            'advertising'       => 'الاعلانات',
+            "questions"          => "الاسئله المشهور" ,
+          
+            
+           
+        ],
+        'footer'=> [
+            'copy_rights'   => 'Copy Rights',
+        ],
+        'navbar'=> [
+            'logout'    => 'تسجيل خروج',
+            'profile'   => 'الملف الشخصي',
+        ],
+    ],
+    'buttons'   => [
+        'add'           => 'اضافة و استمرار',
+        'add_new'       => 'اضافة جديد',
+        'back'          => 'الرجوع للخلف',
+        "restore"       => "استرجاع",
+        'cancel'        => 'الغاء',
+        'clone'         => 'نسخ',
+        'custom'        => 'فتره زمنية خاصة',
+        'datapicker'    => [
+            '30days'        => '٣٠ يوم',
+            '7days'         => '٧ ايام',
+            'last_month'    => 'الشهر السابق',
+            'month'         => 'هذا الشهر',
+            'today'         => 'اليوم',
+            'yesterday'     => 'امس',
+        ],
+        'delete_all'    => 'حذف جميع الحقول المحددة',
+        'edit'          => 'تعديل',
+        'from'          => 'من',
+        'no'            => 'لا',
+        'print'         => 'طباعة',
+        'save'          => 'حفظ',
+        'select_all'    => 'تحديد الكل',
+        'send'          => 'ارسال',
+        'sorting'       => 'ترتيب',
+        'to'            => 'الى',
+        'upload'        => 'اختر صورة',
+        'yes'           => 'نعم',
+    ],
+    'datatable' => [
+        'active'            => 'مفعل',
+        "available"         => "متاح",
+        "yes"               => "نعم",
+        "no"                => "لا",
+        "all"               => "الكل",
+        "unavailable"         => "غير متاح",
+        'add_new_btn'       => 'اضافة',
+        'canceled'          => 'تم الالغاء من المشهور',
+        'colvis'            => 'Colvis',
+        'delete_all_btn'    => 'حذف الكل',
+        'excel'             => 'Excel',
+        'form'              => [
+            'active'            => 'المفعل فقط',
+            'date_range'        => 'البحث بالتاريخ',
+            "users"             => "البحث بالمستخدم",
+            'delete_only'       => 'المحذوف فقط',
+            'roles'             => 'الصلاحيات',
+            'sections'          => 'اقسام المؤساسات',
+            'select'            => 'اختر',
+            'select_roles'      => 'اختر الصلاحيات',
+            'select_sections'   => 'اختر القسم',
+            'soft_deleted'      => 'البحث بالصفوف المحذوفة',
+            'status'            => 'البحث بالحالة',
+            'unactive'          => 'الغير مفعل فقط',
+            "type"              => "البحث بنوع",
+            'with_deleted'      => 'مع الصفوف المحذوف',
+        ],
+        'pageLength'        => 'عدد الحقول للصفحة',
+        'pdf'               => 'PDF',
+        'print'             => 'Print',
+        "vendor"            => "الموسسه",
+        'reset'             => 'حذف البحث',
+        'search'            => 'بحث',
+        'unactive'          => 'غير مفعل',
+    ],
+    'index'     => [
+        'statistics'    => [
+            "match_monthly"             => "المباريات المنشوره الشهريه",
+            "category_count"               => "عدد الخدمات" ,
+            "package_count"               => "عدد الباقات" ,
+            "section_count"             => "عدد المراحل التعليميه المضافه" ,
+            "ads_count"             => "عدد  الاعلانات" ,
+            "ads_monthly"        => "اعلانات   المنشوره شهريا" ,
+            'comleted_orders'           => 'عمليات الدفع ',
+            'count_categories'          => ' انواع الخدمات ',
+            "count_vendors"             => "المؤساسات",
+            "count_users"                => "المستخدمين",
+            'count_celebrities'         => 'المشاهير',
+            'orders_monthly'            =>  'عمليات الدفع الشهريه ',
+            'orders_status'             => 'حالات عمليات الدفع',
+            'title'                     => 'الاحصائيات',
+            'total_completed_orders'    => 'عمليات الدفع المكتمله ',
+            "worker_count"              => "العاملين",
+            "offer_count"               => "العروض",
+            'users_created_at'          => 'تاريخ انشاء الاعضاء بالاشهر',
+            "business_created_at"       =>  'تاريخ انشاء اصحاب العمل بالاشهر',
+            "influencer_created_at"       =>  'تاريخ انشاء  المشاهير بالاشهر',
+            
+
+            "benfit"                    => "المكسب العام " ,
+            "hight_benfit"              => "العمليات الاعلى ربحا" ,
+            "less_benfit"               => "العمليات الاقل ربحا " ,
+            "last_operation"            => "اخر عمليات على المحفظه"  ,
+            "purchase"                  => "المباع" ,
+            "section"                   => "نوع  المباع" ,
+            "total_balance"             => "الرصيد الحالى"
+
+        ],
+        'title'         => 'لوحة التحكم',
+        'welcome'       => 'اهلا بك',
+    ],
+    'messages'  => [
+        'created'       => 'تم الاضافة بنجاح',
+        'delete'        => 'هل تريد حذف هذا الحقل ؟',
+        'delete_all'    => 'هل تريد حذف هذة الحقول المحدده ؟',
+        'deleted'       => 'تم الحذف بنجاح',
+        'failed'        => 'حدث خطا ما ! ، حاول مرة اخرى',
+        'updated'       => 'تم التعديل بنجاح',
+        "undoed"        => "(لا يمكن استرجاعه بعد الموافقه) هل انت متاكد من الرجوع فى هذه العمليه",
+        "undo"          => "تم الرجوع بنجاع" ,
+        "change_status" => "تم تغير الحاله بنجاح"
+    ],
+    'contact'  => [
+        'datatable' => [
+            'created_at'    => 'تاريخ الآنشاء',
+            'status'        => 'الحاله',
+            'username'        => 'اسم المرسل',
+            'email'      => 'البريد الالكترونى',
+            "mobile" => "رقم التواصل" ,
+            "type"          => "النوع",
+            'options'       => 'الخيارات',
+            "message"     => "الرساله" ,
+            "typeOf"        => [
+                "contact" => "تواصل معنا" ,
+                "suggest" => "اقتراح"
+            ]
+           
+        ],
+        'routes'    => [
+           
+            'index'     => '  الاقتراحات والتواصل ',
+            
+        ],
+        
+    ],
+];
