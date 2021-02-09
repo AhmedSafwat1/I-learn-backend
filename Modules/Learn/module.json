@@ -8,6 +8,8 @@
         "Modules\\Learn\\Providers\\LearnServiceProvider"
     ],
     "aliases": {},
-    "files": [],
+    "files": [
+        "composer.php"
+    ],
     "requires": []
 }

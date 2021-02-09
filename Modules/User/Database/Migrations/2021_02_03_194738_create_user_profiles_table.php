@@ -21,6 +21,9 @@ class CreateUserProfilesTable extends Migration
             $table->string("house_price")->default(0);
             $table->string("lesson_type",10)->default("all")->index();
             $table->longText("description")->nullable();
+            $table->longText("working")->nullable();
+            $table->boolean("have_off")->default(false);
+            $table->longText("offs")->nullable();
 
             $table->foreign('user_id')
                 ->references('id')

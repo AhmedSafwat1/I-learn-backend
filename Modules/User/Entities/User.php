@@ -82,7 +82,8 @@ class User extends Authenticatable
                   ->withTimestamps();
     }
 
-    public function profile(){
+    public function profile()
+    {
         return $this->hasOne(UserProfile::class, "user_id");
     }
    
@@ -117,6 +118,11 @@ class User extends Authenticatable
         return $query->where('is_active', true);
     }
 
+    public function scopeUserAvaialabel($query)
+    {
+        return  $query->active()
+                     ->where("is_verified", 1);
+    }
 
     
    
@@ -129,19 +135,39 @@ class User extends Authenticatable
 
    
 
-    public function scopeSearchFilter($query, &$request , $withCategories= false)
+    public function scopeSearchFilter($query, &$request)
     {
-        $query->where(function ($query) use (&$request, &$withCategories) {
-            $query->where("name", 'like', '%'. $request->input('search') .'%')
-            ->orWhere("name", 'description', '%'. $request->input('search') .'%');
+        
+        $query->when($request->search, function ($query) use (&$request) {
+            $query->where(function($query) use(&$request){
+                 $query->where("name",'like' , '%'.$request->search."%");
+                 $query->orWhereHas("subjects.translations",function($subject) use(&$request){
+                     $subject->where('title', 'like', '%'. $request->search .'%');
+                 });
+            } );
+        });
 
-            if($withCategories){
-                $query->orWhereHas("categories.translations", function ($category) use (&$request) {
-                    $category->where('description', 'like', '%'. $request->input('search') .'%')
-                         ->orWhere('title', 'like', '%'. $request->input('search') .'%');
-                });
-            }
-            
+        $query->when($request->gender, function ($query) use (&$request) {
+            $query->where("gender", $request->gender, );
+        });
+
+        $query->when(is_array($request->sections), function ($query) use (&$request) {
+            $query->whereHas("sections", function ($section) use (&$request) {
+                $section->whereIn("sections.id", $request->sections);
+            });
+        });
+
+        $query->when($request->subject_id, function ($query) use (&$request) {
+            $query->whereHas("subjects", function ($section) use (&$request) {
+                $section->where("subjects.id", $request->subject_id);
+            });
+        });
+
+        $query->when($request->lesson_type, function ($query) use (&$request) {
+            $query->whereHas("profile", function ($section) use (&$request) {
+                $section
+                        ->whereIn("profile.lesson_type", [$request->lesson_type, "all"]);
+            });
         });
     }
 }

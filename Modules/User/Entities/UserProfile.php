@@ -15,6 +15,14 @@ class UserProfile extends Model
     protected $attributes = [
         "lesson_type"=> "both",
         "online_price" => 0,
-        "house_price"   => 0
+        "house_price"   => 0,
+        "working"       => [],
+        "offs"          => [],  
+    ];
+
+
+    protected $casts = [
+      'working' => 'array',
+      "offs"    => "array"
     ];
 }

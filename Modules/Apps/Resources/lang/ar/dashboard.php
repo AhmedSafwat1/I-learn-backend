@@ -23,6 +23,7 @@ return [
             "admins"            => "المدراء",
             'categories'        => ' انواع الخدمات ',
             'cities'            => 'المحافظات',
+            "teachers"          => "المعلمين" ,
             'countries'         => 'الدول',
             'notifications'     => 'الاشعارات عامة',
             'orders'            => 'عمليات الدفع',

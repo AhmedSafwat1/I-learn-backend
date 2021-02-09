@@ -53,6 +53,18 @@
             </li>
             @endpermission
 
+            @permission('show_teachers')
+            <li class="nav-item {{ active_menu('teachers') }}">
+                <a href="{{ url(route('dashboard.teachers.index')) }}" class="nav-link nav-toggle">
+                    <i class="icon-settings"></i>
+                    <span class="title">{{ __('apps::dashboard._layout.aside.teachers') }}</span>
+                </a>
+            </li>
+            @endpermission
+
+            <li class="heading">
+                <h3 class="uppercase">{{ __('apps::dashboard._layout.aside._tabs.areas') }}</h3>
+            </li>
             
             @permission('show_countries')
             <li class="nav-item {{ active_menu('countries') }}">

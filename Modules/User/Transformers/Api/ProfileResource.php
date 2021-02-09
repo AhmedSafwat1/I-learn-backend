@@ -12,6 +12,7 @@ class ProfileResource extends JsonResource
     
     public function toArray($request)
     {
+        
        
         return [
            'id'            => $this->id,
@@ -19,9 +20,12 @@ class ProfileResource extends JsonResource
            "lesson_type"   => $this->lesson_type,
            "online_price"  => $this->online_price, 
            "house_price"   => $this->house_price,  
+         
            
        ];
     }
+
+   
     
    
 }

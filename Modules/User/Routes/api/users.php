@@ -19,10 +19,4 @@ Route::group(['prefix' => 'user','middleware' => 'auth:api'], function () {
 
 
 
-Route::group(['prefix' => 'users'], function () {
 
-    Route::get('/' ,  'UserController@getWorkers')->middleware("countryCode");
- 
-    
-
-});

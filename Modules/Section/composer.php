@@ -1,7 +1,6 @@
 <?php
 
 view()->composer(
-    ['vendor::dashboard.vendors.*', "post::dashboard.*", "ads::dashboard.matchs.*" ],
+    ['vendor::dashboard.vendors.*', "post::dashboard.*", "user::dashboard.teachers.*" ],
     \Modules\Section\ViewComposers\Dashboard\SectionComposer::class
 );
-view()->composer(['vendor::dashboard.vendors.*'], \Modules\Section\ViewComposers\Dashboard\SectionMainComposer::class);

@@ -4,7 +4,7 @@ namespace Modules\User\Transformers\Dashboard;
 
 use  Illuminate\Http\Resources\Json\JsonResource;
 
-class UserResource extends JsonResource
+class TeacherResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,7 +18,7 @@ class UserResource extends JsonResource
            'id'            => $this->id,
            'name'          => $this->name,
            'email'         => $this->email,
-           'mobile'        => $this->phone_code ."".$this->mobile,
+           'mobile'        => "0".$this->phone_code ."".$this->mobile,
            'image'         => url($this->image),
            "is_active"     => $this->is_active,
            "is_verified"    => $this->is_verified ,

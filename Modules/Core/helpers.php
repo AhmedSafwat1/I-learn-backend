@@ -291,6 +291,24 @@ if (! function_exists('int_to_array')) {
         return  [];
     }
 }
+if (! function_exists('handleTime')) {
+    /**
+     * convert a comma separated string of numbers to an array
+     *
+     * @param string $integers
+     */
+    function handleTime($time, $format=false)
+    {
+        if($format){
+            return (now()->minute("0")->hour($time))->format("h:i a");
+        }
+        if ($time <=9) {
+            return "0".$time.":00";
+        }
+        return $time.":00";
+        
+    }
+}
 
 if (!function_exists('htmlView')) {
     /**

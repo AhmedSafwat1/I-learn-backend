@@ -3,11 +3,9 @@
 namespace Modules\User\Transformers\Api;
 
 use  Illuminate\Http\Resources\Json\JsonResource;
-use Modules\Area\Transformers\Api\CountryResource;
 use Modules\User\Transformers\Api\ProfileResource;
 use Modules\Learn\Transformers\Api\SubjectResource;
 use Modules\Section\Transformers\Api\SectionResource;
-use Modules\Social\Repositories\Api\SocialRepository;
 use Modules\Category\Transformers\Api\CategoryResource;
 
 class UserResource extends JsonResource
