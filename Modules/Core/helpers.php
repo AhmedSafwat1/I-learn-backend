@@ -89,6 +89,15 @@ if (!function_exists('deleteFileInStroage')) {
     }
 }
 
+if (!function_exists('deleteDirecotoryInStroage')) {
+    function deleteDirecotoryInStroage($base)
+    {
+        $path = storage_path( "app/public/". $base);
+              
+        \File::deleteDirectory($path);
+    }
+}
+
 if (!function_exists('formatTotal')) {
     function formatTotal($number, $deciaml=5)
     {
@@ -99,6 +108,7 @@ if (!function_exists('formatTotal')) {
 if (!function_exists('pathFileInStroage')) {
     function pathFileInStroage(&$request, $inputFile, $folderName)
     {
+        // dd($folderName);
         $path = $request->file($inputFile)->store(
             $folderName,
             'public'
@@ -117,6 +127,16 @@ if (!function_exists('pathFileInStroageForArray')) {
         );
         $path  = "storage/".$path;
         return $path;
+    }
+}
+if (!function_exists('getFileType')) 
+{
+    function getFileType($file)
+    {
+        $extension = strtolower($file->extension()) ?? "file";
+        if(in_array($extension,["png","jpg","jpep","gif","svg"]))
+            return "image";
+        return $extension;
     }
 }
 

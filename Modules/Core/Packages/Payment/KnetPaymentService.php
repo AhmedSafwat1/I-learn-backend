@@ -51,16 +51,14 @@ class KnetPaymentService implements PaymenInterface
         $server_output = curl_exec($ch);
         curl_close($ch);
 		$server_output = json_decode($server_output, true);
-	
-
         return $server_output['paymentURL'];
     }
 
     public function paymentUrls($type)
     {
         if ($type == 'api-order') {
-            $url['success'] = url(route('api.ads.success'));
-            $url['failed']  = url(route('api.ads.failed'));
+            $url['success'] = url(route('api.payment.success'));
+            $url['failed']  = url(route('api.payment.failed'));
         }
 
         return $url;
@@ -71,7 +69,7 @@ class KnetPaymentService implements PaymenInterface
     {
 		
 		$order["id"]     = $data["id"];	
-		$order["total"]  = $data["money_paied"];
+		$order["total"]  = $data["total"];
 		$order["name"]   = optional($data->user)->name ;
 		$order["email"]  = optional($data->user)->email ;
 		$order["mobile"] = optional($data->user)->phone_code . "". optional($data->user)->mobile;

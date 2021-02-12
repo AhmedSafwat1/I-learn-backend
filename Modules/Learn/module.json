@@ -5,7 +5,8 @@
     "keywords": [],
     "order": 0,
     "providers": [
-        "Modules\\Learn\\Providers\\LearnServiceProvider"
+        "Modules\\Learn\\Providers\\LearnServiceProvider" ,
+        "Modules\\Learn\\Providers\\EventServiceProvider"
     ],
     "aliases": {},
     "files": [

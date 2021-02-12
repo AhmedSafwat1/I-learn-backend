@@ -4,7 +4,9 @@ namespace App\Exceptions;
 
 use Exception;
 use Throwable;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -48,8 +50,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+    
          if($request->expectsJson() || $request->wantsJson() || $request->ajax() ){
 
+         
              if($exception instanceof \Symfony\Component\HttpKernel\Exception\HttpException &&  $exception->getStatusCode() == 403 ){
                  return $this->errorApi("Not authorized", 403, []);
              }

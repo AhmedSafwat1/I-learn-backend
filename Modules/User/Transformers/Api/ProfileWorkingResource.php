@@ -42,7 +42,7 @@ class ProfileWorkingResource extends JsonResource
                         $object["times"][] = [
                             "time"          => $time ,
                             "date"          => $timeDate->format("d-m-Y h:i a")  ,
-                            "availabel"     => $timeDate->isFuture()
+                            "availabel"     => $this->checkIfDataAvaibale($timeDate)
                         ];
                     }
                 }

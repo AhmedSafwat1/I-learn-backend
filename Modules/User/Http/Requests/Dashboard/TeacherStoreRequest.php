@@ -16,7 +16,8 @@ class TeacherStoreRequest extends FormRequest
     {
     
         
-     
+        // dd($this->offs);
+        // $x = array_filter($this->offs);
        
         // dd($x);
         $rule = [
@@ -34,8 +35,11 @@ class TeacherStoreRequest extends FormRequest
             "sections"       => "nullable|array|exists:sections,id"  ,
             "subject"        => "nullable|array|exists:subjects,id" ,
             "lesson_type"    => "required",
+            "homework_price" => "required|numeric|min:0"   ,
             "online_price"   => "required_if:lesson_type,!=,house|numeric",
-            "house_price"   =>  "required_if:lesson_type,!=,online|numeric",
+            "house_price"    =>  "required_if:lesson_type,!=,online|numeric",
+            "offs.start"     => "bail|required_if:have_off,on",
+            "offs.end"       => "bail|required_with:offs.start|nullable|after:offs.start",
                 
 
         ];

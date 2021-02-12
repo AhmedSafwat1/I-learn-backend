@@ -275,17 +275,25 @@ class TeacherRepository
         $model->sections()->sync($request->sections ?? []);
         $model->subjects()->sync($request->subjects ?? []);
         $workings = [];
+        $offs     = [];
         if(is_array($request->working)){
             $workings = array_filter($request->working, function($work){
                 return isset($work["day"]);
             });
+        }
+        if(is_array($request->offs)){
+            $offs = array_filter($request->offs);
         }
         $model->profile()->updateOrCreate(["user_id"=>$model->id],[
             "description"  => $request->description,
             "house_price"  => in_array($request->lesson_type, ["all", "house"]) ? $request->house_price ?? 0 : 0,
             "lesson_type"  => $request->lesson_type ,
             "online_price" => in_array($request->lesson_type, ["all", "online"]) ? $request->online_price ?? 0 :0 ,
-            "working"      => $workings 
+            "homework_price"=> $request->homework_price ,    
+            "working"      => $workings  ,
+            "have_off"     => $request->have_off == "on" ? 1 : 0, 
+            "offs"         => $offs, 
+
         ]);
 
       

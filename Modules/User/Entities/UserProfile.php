@@ -3,9 +3,11 @@
 namespace Modules\User\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Modules\User\Concerns\AvailabityTrait;
 
 class UserProfile extends Model
 {
+    use AvailabityTrait;
     protected $guarded 				    	= ['id'];
       /**
     * The model's default values for attributes.

@@ -15,6 +15,8 @@ class AuthenticationServiceProvider extends ServiceProvider
             'dashboard.auth'  => 'DashboardAuthenticate',
             'auth'            => 'Authenticate',
             'countryCode'            => 'CountryTenant',
+            "auth.is_verified"=>"CheckVerified" ,
+            "auth.is_actived" => "CheckActivited"  
         ],
     ];
 

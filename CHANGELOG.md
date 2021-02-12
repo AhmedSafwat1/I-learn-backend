@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Make User Module  . 
 - Student User Api And Dashboard  .
 - Add Subject Module .
+- End Basic Crud for Teacher function  .
+
 
 
 

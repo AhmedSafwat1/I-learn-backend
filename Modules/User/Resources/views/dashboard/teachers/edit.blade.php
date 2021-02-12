@@ -354,13 +354,13 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <div class="col-md-5">
+                                        <div class="col-md-4">
 
                                             <div class="form-group">
-                                                <label class="col-md-5">
+                                                <label class="col-md-7">
                                                     {{__('user::dashboard.teachers.create.form.online_price')}}
                                                 </label>
-                                                <div class="col-md-7">
+                                                <div class="col-md-5">
                                                     <input type="number" class="form-control" value="{{optional($user->profile)->online_price}}" min="0" value="0" name="online_price" data-nam="online_price" />
                                                     <div class="help-block"></div>
                                                 </div>
@@ -368,14 +368,28 @@
 
                                         </div>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
 
                                             <div class="form-group">
-                                                <label class="col-md-5">
+                                                <label class="col-md-7">
                                                     {{__('user::dashboard.teachers.create.form.house_price')}}
                                                 </label>
-                                                <div class="col-md-6">
+                                                <div class="col-md-5">
                                                     <input type="number" class="form-control" min="0" value="{{optional($user->profile)->house_price}}" name="house_price" data-nam="house_price" />
+                                                    <div class="help-block"></div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+
+                                        <div class="col-md-3">
+
+                                            <div class="form-group">
+                                                <label class="col-md-7">
+                                                    {{__('user::dashboard.teachers.create.form.homework_price')}}
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <input type="number" class="form-control" min="0" value="{{optional($user->profile)->homework_price}}" name="homework_price" data-nam="homework_price" />
                                                     <div class="help-block"></div>
                                                 </div>
                                             </div>
@@ -394,33 +408,110 @@
                                 </h3>
                                 <div class="col-md-10">
 
-                                   
+                                    <div class="tabbable">
+                                        <ul class="nav nav-tabs bg-slate nav-tabs-component">
 
-                                    
-                                    @foreach (['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'] as $day)
-                                        <div class="form-group">
-                                            <label class="col-md-2">
-                                                <input type="checkbox" class="schedule-day" @if(isset($user->profile->working[$day])) checked @endif value="{{$day}}" name="working[{{$day}}][day]" /> {{ __("user::dashboard.teachers.datatable.weak.".$day)}}
-                                            </label>
-                                            <div class="col-md-9 {{$day}} @if(!isset($user->profile->working[$day])) display-none @endif">
-                                                @foreach (range(0,23) as $item)
-                                                    <div class="col-md-2">
-                                                        <input type="checkbox"
-                                                          @if(
-                                                          isset($user->profile->working[$day])              && 
-                                                          is_array($user->profile->working[$day]["times"]) &&
-                                                          isset($user->profile->working[$day]["times"][$item])
-                                                           )    
-                                                           checked   
-                                                          @endif  
-                                                         value="{{handleTime($item)}}" name="working[{{$day}}][times][]" /> {{handleTime($item, 1)}}
-                                                    </div> 
-                                                @endforeach
-                                                
+                                            <li class="active">
+                                                <a href="#colored-rounded-tab-general-descaption" data-toggle="tab" aria-expanded="false">
+                                                    {{__('user::dashboard.teachers.create.form.working')}}
+                                                </a>
+                                            </li>
+
                                             
+
+                                            <li class="">
+                                                <a href="#colored-rounded-tab-general-off" data-toggle="tab" aria-expanded="false">
+                                                    {{__('user::dashboard.teachers.create.form.off')}}
+                                                </a>
+                                            </li>
+                                           
+                                        </ul>
+                                    </div>
+
+                                    <div class="tab-content">
+                                    
+                                        <div class="tab-pane fade active in" id="colored-rounded-tab-general-descaption">
+                                            @foreach (['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'] as $day)
+                                                <div class="form-group">
+                                                    <label class="col-md-2">
+                                                        <input type="checkbox" class="schedule-day" @if(isset($user->profile->working[$day])) checked @endif value="{{$day}}" name="working[{{$day}}][day]" /> {{ __("user::dashboard.teachers.datatable.weak.".$day)}}
+                                                    </label>
+                                                    <div class="col-md-9 {{$day}} @if(!isset($user->profile->working[$day])) display-none @endif">
+                                                        @foreach (range(0,23) as $item)
+                                                            <div class="col-md-2">
+                                                                <input type="checkbox"
+                                                                @if(
+                                                                isset($user->profile->working[$day])              && 
+                                                                is_array($user->profile->working[$day]["times"]) &&
+                                                                isset($user->profile->working[$day]["times"][$item])
+                                                                )    
+                                                                checked   
+                                                                @endif  
+                                                                value="{{handleTime($item)}}" name="working[{{$day}}][times][]" /> {{handleTime($item, 1)}}
+                                                            </div> 
+                                                        @endforeach
+                                                        
+                                                    
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                      
+                                        <div class="tab-pane fade  in" id="colored-rounded-tab-general-off">
+                                            <div class="have_offs">
+                                                <div class="form-group">
+                                                    <label class="col-md-2">
+                                                        {{__('user::dashboard.teachers.create.form.have_off')}}
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <input type="checkbox" class="make-switch" @if(optional($user->profile)->have_off == 1) checked @endif  id="test" data-size="small" name="have_off">
+                                                        <div class="help-block"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="content-offs">
+                                                 <div class="off-one">
+                                                        <div class="row">
+                                                            <div class="col-md-5">
+                                                                <div class="form-group">
+                                                                    <label class="col-md-2" >
+                                                                        {{__('user::dashboard.teachers.create.form.from')}}
+                                                                    </label>
+                                                                    <div class="col-md-9">
+                                                                        <div class="input-group">
+                                                                        <input type="text"  class="form-control datetimepicker" 
+                                                                            value="{{optional(optional($user->profile)->offs)['start']}}"
+                                                                        name="offs[start]"  >
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-5">
+                                                                <div class="form-group">
+                                                                    <label class="col-md-2">
+                                                                        {{__('user::dashboard.teachers.create.form.to')}}
+                                                                    </label>
+                                                                    <div class="col-md-9">
+                                                                        <div class="input-group">
+                                                                            <input type="text" 
+                                                                            value="{{optional(optional($user->profile)->offs)['end']}}"
+                                                                            class="form-control datetimepicker" name="offs[end]"  >
+                                                                        
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                          
+                                                            
+
+                                                        </div>
+                                                 </div>
                                             </div>
                                         </div>
-                                    @endforeach
+                                        
+                                    </div>
 
                                    
 
@@ -468,6 +559,7 @@
 
 <script>
     $(function() {
+        
        $("body").on("change", ".schedule-day", function(){
            var _elm = $(this)
           
@@ -485,6 +577,12 @@
             time.find('input:checkbox').removeAttr('checked');
            }
        })
+
+       // date 
+       $('.datetimepicker').datetimepicker({
+            
+
+       });
     });
 </script>
 

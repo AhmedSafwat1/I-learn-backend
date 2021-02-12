@@ -10,7 +10,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Modules\\Learn\\Providers\\LearnServiceProvider"
+                "Modules\\Learn\\Providers\\LearnServiceProvider" ,
             ],
             "aliases": {
 

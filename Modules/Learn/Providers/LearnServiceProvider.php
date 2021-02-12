@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Factory;
 
 class LearnServiceProvider extends ServiceProvider
 {
+    protected $mapPaymentGetWay = [
+        "knet" => \Modules\Core\Packages\Payment\KnetPaymentService::class,
+    ];
     /**
      * Boot the application events.
      *
@@ -19,6 +22,7 @@ class LearnServiceProvider extends ServiceProvider
         $this->registerViews();
         $this->registerFactories();
         $this->loadMigrationsFrom(module_path('Learn', 'Database/Migrations'));
+        $this->regisetrPaymentService();
     }
 
     /**
@@ -43,6 +47,20 @@ class LearnServiceProvider extends ServiceProvider
         ], 'config');
         $this->mergeConfigFrom(
             module_path('Learn', 'Config/config.php'), 'learn'
+        );
+    }
+    public function regisetrPaymentService(){
+       
+        $this->app->singleton(
+            \Modules\Core\Packages\Payment\Contract\PaymenInterface::class,
+            function ($app) {
+                $class =   $this->mapPaymentGetWay["knet"];
+                if(isset($this->mapPaymentGetWay[(request())->payment_method])){
+                    $class =   $this->mapPaymentGetWay[$this->payment_method] ;
+                }
+            
+                return  new $class;
+            }
         );
     }
 

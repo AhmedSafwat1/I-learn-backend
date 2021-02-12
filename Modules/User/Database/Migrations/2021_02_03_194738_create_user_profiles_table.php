@@ -19,6 +19,7 @@ class CreateUserProfilesTable extends Migration
             $table->unsignedBigInteger("user_id");
             $table->string("online_price")->default(0);
             $table->string("house_price")->default(0);
+            $table->string("homework_price")->default(0);
             $table->string("lesson_type",10)->default("all")->index();
             $table->longText("description")->nullable();
             $table->longText("working")->nullable();
