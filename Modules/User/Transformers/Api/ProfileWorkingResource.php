@@ -2,6 +2,7 @@
 
 namespace Modules\User\Transformers\Api;
 
+use Modules\Learn\Entities\Lesson;
 use  Illuminate\Http\Resources\Json\JsonResource;
 use Modules\Area\Transformers\Api\CountryResource;
 use Modules\Social\Repositories\Api\SocialRepository;
@@ -27,6 +28,12 @@ class ProfileWorkingResource extends JsonResource
 
     public function handleTheWorking(){
         $date = now();
+        $reservations = Lesson::Select("start_at","end_at","id","date")
+                                    ->paied()
+                                    ->inComming()
+                                    ->where("start_at", "<", now()->addDay(8))
+                                    ->get();
+       
         $works = [];
         foreach (range(0,6) as $iterarte ) {
             $day = strtolower($date->format("l"));
@@ -42,7 +49,7 @@ class ProfileWorkingResource extends JsonResource
                         $object["times"][] = [
                             "time"          => $time ,
                             "date"          => $timeDate->format("d-m-Y h:i a")  ,
-                            "availabel"     => $this->checkIfDataAvaibale($timeDate)
+                            "availabel"     => $this->checkIfDataAvaibale($timeDate, $reservations)
                         ];
                     }
                 }

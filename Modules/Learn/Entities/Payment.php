@@ -14,7 +14,7 @@ class Payment extends Model
     protected $casts = [
         'owner' => 'array',
         "transaction"    => "array"
-      ];
+    ];
 
     public function order()
     {

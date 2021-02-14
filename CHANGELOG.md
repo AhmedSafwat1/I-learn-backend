@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add Subject Module .
 - End Basic Crud for Teacher function  .
 - End Api for HomeWork End point .
-
+- End Basic crud Api for lession edn point .
 
 
 

@@ -117,7 +117,7 @@ class HomeWorkRepository
         try {
             $data = array_merge(
                 [
-                "user_id" => auth()->id(),
+                 "student_id"  => auth()->id(),
                 "note"    => $request->note,
                 "title"    => $request->title,
             ],

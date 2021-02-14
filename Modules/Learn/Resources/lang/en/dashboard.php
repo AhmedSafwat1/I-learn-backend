@@ -39,4 +39,13 @@ return [
             ],
         ],
     ],
+    "leasons" =>[
+            "validation"=>[
+                "start_at"=>[
+                    "not_availbel"=>"The chosen class time is not available for this teacher .",
+                    "not_working"=>"The chosen time and date are not in the teacher's schedule." ,
+                ]
+            ]
+  
+    ]
 ];

@@ -100,6 +100,7 @@ class TeacherRepository
               'phone_code'    => $request['phone_code'],
               'mobile'        => $request['mobile'],
               'image'         => $image,
+              "password"      => Hash::make($request['password'])
             
           ]);
             $this->saveTeacherDate($user, $request);
