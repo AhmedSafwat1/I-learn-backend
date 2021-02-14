@@ -15,6 +15,7 @@ class CreateHomeWorksTable extends Migration
     {
         Schema::create('home_works', function (Blueprint $table) {
             $table->uuid('id');
+            $table->string("title")->nullable();
             $table->text("note")->nullabel();
             $table->string("price")->default(0);
             $table->boolean("is_paied")->default(false);

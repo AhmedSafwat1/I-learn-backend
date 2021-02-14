@@ -119,6 +119,7 @@ class HomeWorkRepository
                 [
                 "user_id" => auth()->id(),
                 "note"    => $request->note,
+                "title"    => $request->title,
             ],
                 $this->handleTeacherData($teacher, $request)
             );
@@ -142,6 +143,35 @@ class HomeWorkRepository
                 $this->createPayment($model);
             }
 
+            DB::commit();
+
+            return $model;
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw $e;
+        }
+    }
+
+    public function update(&$request, $id)
+    {
+        DB::beginTransaction();
+        $model = $this->findByIdTalent($id, ["attachs"]);
+       
+        try {
+            $data = [
+                "note"    => $request->note,
+                "title"    => $request->title,
+            ];
+
+            $this->deletelAttachsFromArray($model, $request);
+
+            $model->update(
+                $data
+            );
+
+        
+            $this->saveAttachs($model, $request, $model->id);
+            
             DB::commit();
 
             return $model;
@@ -208,5 +238,16 @@ class HomeWorkRepository
             return $this->payment->getResultForPayment($model->payment);
         }
         return "";
+    
+    }
+
+    public function deletelAttachsFromArray(&$model, &$request){
+        if(is_array($request->attachsDelete)){
+            
+            foreach ($request->attachsDelete as $delete) {
+              $attach = $model->attachs->firstWhere("id", $delete);
+              if($attach) $attach->delete();
+            }
+        }
     }
 }

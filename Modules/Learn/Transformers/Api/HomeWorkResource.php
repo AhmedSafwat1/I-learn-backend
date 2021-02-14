@@ -14,11 +14,12 @@ class HomeWorkResource extends JsonResource
         return [
            'id'            => $this->id,
            "price"         => $this->price ,
+           "title"         => $this->title, 
            "note"          => $this->note ?? "" ,
            "student"       => new UserResource($this->whenLoaded("student"))   ,
            "teacher"       => new UserResource($this->whenLoaded("teacher")) ,
            "created_at"    => $this->created_at->format("d-m-Y h:i a"),
-           "attachs"       => new AttachResource($this->whenLoaded("attachs")) ,
+           "attachs"       => AttachResource::collection($this->whenLoaded("attachs")) ,
            "solution"      => new HomeWorkSolutionResource($this->whenLoaded("solution")) ,
            "status"        => $this->status ?? "wait" ,
            "is_free"       => $this->is_free ,

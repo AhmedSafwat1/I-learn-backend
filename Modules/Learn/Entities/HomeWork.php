@@ -44,7 +44,7 @@ class HomeWork extends Model
 
     public function attachs()
     {
-        return $this->morphOne(HomeWorkAttach::class, "owner");
+        return $this->morphMany(HomeWorkAttach::class, "owner");
     }
 
     public function payment()

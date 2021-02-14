@@ -14,17 +14,24 @@ class HomeWorkStoreRequst extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rule =  [
             "teacher_id"  => ["required",
                                       Rule::exists("users","id")
                                             ->where("type","teacher")
                                             ->where("is_active", 1)
                                             ->where("is_verified", 1)
         ],
-        "attachs"  => "nullable|array" ,
-        "attachs.*"=> "required|file" ,
-        "note"     => "nullable|string" 
+            "attachs"  => "nullable|array" ,
+            "attachs.*"=> "required|file" ,
+            "note"     => "nullable|string" ,
+            "title"    => "nullable|max:255"    
         ];
+
+        if($this->id){
+            // dd("hi");
+            $rule["teacher_id"]  = str_replace("required","nullable", $rule["teacher_id"] );
+        }
+        return $rule;
     }
 
     /**

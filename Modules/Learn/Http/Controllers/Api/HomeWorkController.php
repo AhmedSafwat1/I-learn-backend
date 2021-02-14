@@ -94,6 +94,13 @@ class HomeWorkController extends ApiController
              );
     }
 
+    public function update(HomeWorkStoreRequst $request, $id){
+        $model  =   $this->repo->update($request, $id);
+        return $this->response(
+            new HomeWorkResource($model)
+            );
+   }
+
     
 
 

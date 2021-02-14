@@ -14,7 +14,7 @@ class HomeWorkSolutionResource extends JsonResource
         return [
            'id'            => $this->id,
            "note"          => $this->note ?? "" ,
-           "attachs"       => new AttachResource($this->whenLoaded("attachs")) ,
+           "attachs"       => AttachResource::collection($this->whenLoaded("attachs")) ,
            "homework"      => new HomeWorkResource($this->whenLoaded("homework")) ,
            "created_at"    => $this->created_at->format("d-m-Y h:i a"),
        ];

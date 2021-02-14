@@ -5,6 +5,7 @@ Route::group(['prefix' => 'homeworks', "middleware"=>['auth:api']], function () 
    
     Route::group([ 'prefix' => 'student','middleware' => [ "user.type:student"]], function () {
          Route::post("/","HomeWorkController@store");
+         Route::post("/{id}","HomeWorkController@update");
          Route::get("/solutions","HomeWorkController@getSolutions");
          
     });
